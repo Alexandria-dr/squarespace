@@ -1,7 +1,11 @@
 @media (max-width: 768px) {
+  body.lock {
+    overflow: hidden;
+  }
+  // ******* nav menu *******
   .menu__links,
   .menu__login,
-  .nav__logo a {
+  .logo_text {
     display: none;
   }
 
@@ -18,7 +22,7 @@
     display: block;
     width: 100%;
     position: relative;
-    z-index: 3;
+    z-index: 6;
     top: 0;
     right: 0;
     width: 30px;
@@ -64,4 +68,5 @@
       }
     }
   }
+  // ******* nav menu *******
 }
