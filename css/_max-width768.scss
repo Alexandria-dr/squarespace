@@ -68,5 +68,52 @@
       }
     }
   }
-  // ******* nav menu *******
+  // ******* nav menu end *******
+  .tools__top {
+    grid-template-columns: 1fr 250px 1fr;
+  }
+  .tools__text {
+    font-size: 1.4rem;
+  }
+  .p-center {
+    width: 90%;
+  }
+  .tools__items {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .item__card {
+    img {
+      max-width: 300px;
+    }
+  }
+  .card__container {
+    img {
+      max-width: 50%;
+      height: 50%;
+      align-self: center;
+    }
+  }
+  .btn-green {
+    margin-top: 5px;
+    font-size: 0.6rem;
+  }
+  .card__desc {
+    margin-left: 10px;
+    p {
+      line-height: 15px;
+      font-size: 0.8rem;
+    }
+  }
+  input[type="radio"] + label {
+    font-size: 0.8rem;
+  }
+  .card__inputs {
+    margin: 10px 0;
+    input {
+      max-width: 50%;
+    }
+  }
+  .card__select {
+    margin-bottom: 10px;
+  }
 }
