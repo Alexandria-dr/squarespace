@@ -20,6 +20,8 @@ closeButton.addEventListener('click', e => {
 const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     autoHeight: true,
+    preloadImages: false,
+    lazy: true,
     pagination: {
       el: '.swiper-pagination',
       type: "fraction",

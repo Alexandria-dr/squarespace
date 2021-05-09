@@ -61,6 +61,8 @@ a.logo:hover::before {
 .logo img {
   margin-right: 25px;
   z-index: 5;
+  width: 100%;
+  height: 100%;
 }
 
 .logo a {
@@ -394,6 +396,7 @@ h3 {
 
 .item__card img {
   max-height: 250px;
+  width: 100%;
 }
 
 .btn-green {
@@ -571,11 +574,11 @@ input[type="radio"]:checked + label {
   margin: 15px 0;
 }
 
-.possibility__content a {
+.underline {
   margin-top: 20px;
 }
 
-.possibility__content a::before {
+.underline::before {
   position: absolute;
   content: "";
   bottom: -3px;
@@ -587,7 +590,7 @@ input[type="radio"]:checked + label {
   transition: all 0.3s ease;
 }
 
-.possibility__content a:hover::before {
+.underline:hover::before {
   background-color: #2d6a4f;
 }
 
@@ -812,6 +815,98 @@ h2 {
   height: 3px;
 }
 
+.startPoint__container {
+  padding: 30px 50px;
+}
+
+.startPoint__container img {
+  width: 100%;
+  height: 100%;
+}
+
+.startPoint_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.startPoint_title h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.startPoint_title p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+ol {
+  list-style-type: decimal-leading-zero;
+  padding: 0;
+}
+
+ol li {
+  margin: 30px;
+  font-size: 1.1rem;
+}
+
+.howStart {
+  background-color: black;
+}
+
+.howStart * {
+  color: #f6eded;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.howStart__container {
+  padding: 40px 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.howStart__title h2 {
+  font-size: 2.5rem;
+  width: 70%;
+  margin: 35px 0;
+}
+
+.howStart__title a {
+  position: relative;
+}
+
+.howStart__title a::after {
+  position: absolute;
+  content: "";
+  background-image: url(../img/arrow.svg);
+  background-repeat: no-repeat;
+  top: 0;
+  right: -80%;
+  width: 50%;
+  height: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.howStart__title a:hover::after {
+  background-image: url(../img/arrow-green.svg);
+  right: -55%;
+}
+
 @media (max-width: 768px) {
   body.lock {
     overflow: hidden;
@@ -898,6 +993,7 @@ h2 {
   }
   .item__card img {
     max-width: 300px;
+    height: 100%;
   }
   .card__container img {
     max-width: 50%;
@@ -993,6 +1089,34 @@ h2 {
   }
   .yoga {
     text-align: center;
+  }
+  .startPoint__container {
+    padding: 10px 20px;
+  }
+  .startPoint_title {
+    margin: 20px 0;
+  }
+  .startPoint_title h2 {
+    font-size: 2rem;
+  }
+  .startPoint_title p {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  .howStart__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 30px 20px;
+  }
+  .howStart__title h2 {
+    font-size: 2.5rem;
+    width: 100%;
+    margin: 35px 0;
+  }
+  .howStart__title a {
+    margin-left: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */

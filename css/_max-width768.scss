@@ -84,6 +84,7 @@
   .item__card {
     img {
       max-width: 300px;
+      height: 100%;
     }
   }
   .card__container {
@@ -179,5 +180,37 @@
   }
   .yoga {
     text-align: center;
+  }
+
+  // startPoint
+
+  .startPoint__container {
+    padding: 10px 20px;
+  }
+  .startPoint_title {
+    margin: 20px 0;
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      width: 100%;
+    }
+  }
+
+  //how
+  .howStart__container {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  .howStart__title {
+    h2 {
+      font-size: 2.5rem;
+      width: 100%;
+      margin: 35px 0;
+    }
+    a {
+      margin-left: 20px;
+    }
   }
 }
