@@ -213,4 +213,72 @@
       margin-left: 20px;
     }
   }
+
+  // price
+
+  .price__container {
+    padding: 20px 10px;
+  }
+  .price__title {
+    h2 {
+      font-size: 2.5rem;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  table {
+    tr {
+      :first-child {
+        font-size: 0.8rem;
+        & ~ th {
+          font-size: 1rem;
+          line-height: 20px;
+          span.blue {
+            font-size: 0.7em;
+          }
+        }
+      }
+    }
+  }
+  .price__plan {
+    padding: 30px 5px 0px;
+  }
+  .plan__title {
+    h2 {
+      font-size: 2rem;
+    }
+    .plan__desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .plan-list {
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  // support
+
+  .support {
+    h2 {
+      width: 100%;
+    }
+  }
+  .question__items {
+    padding: 0 10px;
+    width: 100%;
+  }
+  .item-question {
+    &::before {
+      left: 92%;
+    }
+  }
+}
+
+@media (max-width: 310px) {
+  .price__table {
+    display: none;
+  }
 }

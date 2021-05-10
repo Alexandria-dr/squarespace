@@ -328,8 +328,8 @@ h1 {
   font-family: "Mitr", sans-serif;
   font-weight: 400;
   font-size: 2rem;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .tools__text.active {
@@ -344,12 +344,19 @@ h1 {
 }
 
 .tools__content {
-  padding-top: 50px;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
   display: block;
 }
 
-.tools__content.hide {
-  display: none;
+.tools__content:not(.hide) {
+  overflow: hidden;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+.tools__content p.p-center:first-child {
+  padding-top: 50px;
 }
 
 .p-center {
@@ -460,12 +467,12 @@ h3 {
   border-radius: 40px;
 }
 
-input[type="radio"] {
+.card__radios input[type="radio"] {
   display: none;
   margin: 10px;
 }
 
-input[type="radio"] + label {
+.card__radios input[type="radio"] + label {
   border-radius: 40px;
   width: 30%;
   text-align: center;
@@ -479,7 +486,7 @@ input[type="radio"] + label {
   transition: all 0.3s ease;
 }
 
-input[type="radio"]:checked + label {
+.card__radios input[type="radio"]:checked + label {
   color: #131313;
   background-image: none;
   background-color: white;
@@ -858,6 +865,7 @@ ol {
 }
 
 ol li {
+  padding-left: 5px;
   margin: 30px;
   font-size: 1.1rem;
 }
@@ -905,6 +913,309 @@ ol li {
 .howStart__title a:hover::after {
   background-image: url(../img/arrow-green.svg);
   right: -55%;
+}
+
+.price {
+  font-family: "Roboto", sans-serif;
+}
+
+.price__container {
+  padding: 30px 100px;
+}
+
+.price__title h2 {
+  font-size: 3rem;
+}
+
+.price__title p {
+  font-weight: 300;
+  font-size: 1.6rem;
+  margin: 0 0 30px;
+  width: 20%;
+}
+
+.price__radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+
+.price__radio .custom-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.price__radio .custom-radio + label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.price__radio .custom-radio + label::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  border: 1px solid #c4c4c4;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.price__radio .custom-radio:not(:disabled):not(:checked) + label:hover::before {
+  border-color: #c4c4c4;
+}
+
+.price__radio .custom-radio:focus:not(:checked) + label::before {
+  border-color: #c4c4c4;
+}
+
+.price__radio .custom-radio:checked + label {
+  position: relative;
+}
+
+.price__radio .custom-radio:checked + label::before {
+  border-color: #c4c4c4;
+  background-color: #c4c4c4;
+  background-image: url(../img/dot.svg);
+}
+
+.price__radio .custom-radio:checked + label::after {
+  position: absolute;
+  width: 100%;
+  color: #3586d1;
+  font-size: 0.5rem;
+  top: 40%;
+  left: 80%;
+}
+
+.price__radio input[id="radio4"]:checked + label::after {
+  content: "(Save up to 13%)";
+}
+
+.price__radio input[id="radio5"]:checked + label::after {
+  content: "(Save up to 5%)";
+}
+
+.price__radio input[type="radio"] + label {
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 0;
+  color: #c4c4c4;
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.price__radio input[type="radio"]:checked + label {
+  color: black;
+  background-image: none;
+  background-color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr:first-child {
+  height: 120px;
+}
+
+table tr:first-child ~ tr {
+  height: 60px;
+}
+
+table * {
+  font-family: "Montserrat", sans-serif;
+}
+
+table tr :first-child {
+  vertical-align: bottom;
+}
+
+table tr :first-child span {
+  color: #c4c4c4;
+  font-weight: 500;
+  font-size: 0.9em;
+  display: inline-block;
+  margin: 0 5px 10px;
+}
+
+table tr :first-child ~ th {
+  vertical-align: top;
+  font-size: 1.3rem;
+  line-height: 30px;
+}
+
+table tr :first-child ~ th span.blue {
+  display: block;
+  line-height: 13px;
+  color: #3586d1;
+  font-size: 0.5em;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table th,
+table td {
+  border-bottom: 1px solid #c4c4c4;
+  text-align: center;
+}
+
+table th.left,
+table td.left {
+  text-align: start;
+  width: 30%;
+}
+
+.price__plan {
+  padding: 30px 30px 0 0;
+}
+
+.plan__title {
+  width: 100%;
+}
+
+.plan__title h2 {
+  font-size: 2.5rem;
+}
+
+.plan__title .plan__desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.plan-list {
+  margin-left: 70px;
+}
+
+.plan-item {
+  margin-bottom: 18px;
+}
+
+.support {
+  background-color: #000000;
+  color: white;
+}
+
+.support h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+  width: 30%;
+}
+
+.support__question {
+  padding: 30px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.support__question p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+}
+
+.question__items {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.question__item {
+  position: relative;
+  border-top: 1px solid white;
+}
+
+.question__item:last-child {
+  border-bottom: 1px solid white;
+}
+
+.item-question {
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-question p {
+  padding-right: 10%;
+}
+
+.item-question::before {
+  position: absolute;
+  content: "+";
+  font-size: 2rem;
+  font-weight: 600;
+  left: 95%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.item-question.active::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.question {
+  display: inline-block;
+}
+
+.toggle-container {
+  -webkit-transition: height 0.35s ease-in-out;
+  transition: height 0.35s ease-in-out;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.toggle-container p {
+  font-size: 1rem;
+}
+
+.toggle-container:not(.active) {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -1117,6 +1428,63 @@ ol li {
   }
   .howStart__title a {
     margin-left: 20px;
+  }
+  .price__container {
+    padding: 20px 10px;
+  }
+  .price__title h2 {
+    font-size: 2.5rem;
+  }
+  .price__title p {
+    width: 100%;
+  }
+  table tr :first-child {
+    font-size: 0.8rem;
+  }
+  table tr :first-child ~ th {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  table tr :first-child ~ th span.blue {
+    font-size: 0.7em;
+  }
+  .price__plan {
+    padding: 30px 5px 0px;
+  }
+  .plan__title h2 {
+    font-size: 2rem;
+  }
+  .plan__title .plan__desc {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .plan-list {
+    padding: 0;
+    margin: 20px 0;
+  }
+  .support h2 {
+    width: 100%;
+  }
+  .question__items {
+    padding: 0 10px;
+    width: 100%;
+  }
+  .item-question::before {
+    left: 92%;
+  }
+}
+
+@media (max-width: 310px) {
+  .price__table {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

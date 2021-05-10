@@ -260,7 +260,7 @@ h1 {
   font-family: $mitr;
   font-weight: 400;
   font-size: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 .tools__text.active {
   transform: translateY(50px) scale(1.5);
@@ -271,10 +271,17 @@ h1 {
 }
 
 .tools__content {
-  padding-top: 50px;
+  transition: height 0.5s ease;
   display: block;
-  &.hide {
-    display: none;
+  &:not(.hide) {
+    overflow: hidden;
+
+    transition: height 0.5s ease;
+  }
+}
+.tools__content {
+  p.p-center:first-child {
+    padding-top: 50px;
   }
 }
 .p-center {
@@ -361,31 +368,31 @@ h3 {
   display: flex;
   justify-content: space-around;
   border-radius: 40px;
+  input[type="radio"] {
+    display: none;
+    margin: 10px;
+  }
+
+  input[type="radio"] + label {
+    border-radius: 40px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    color: $brown;
+    margin: 10px;
+    padding: 4px 0;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  input[type="radio"]:checked + label {
+    color: $black;
+    background-image: none;
+    background-color: white;
+  }
 }
 
-input[type="radio"] {
-  display: none;
-  margin: 10px;
-}
-
-input[type="radio"] + label {
-  border-radius: 40px;
-  width: 30%;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  color: $brown;
-  margin: 10px;
-  padding: 4px 0;
-  background-color: transparent;
-  transition: all 0.3s ease;
-}
-
-input[type="radio"]:checked + label {
-  color: $black;
-  background-image: none;
-  background-color: white;
-}
 // end
 
 .card__inputs {
@@ -663,6 +670,7 @@ ol {
   list-style-type: decimal-leading-zero;
   padding: 0;
   li {
+    padding-left: 5px;
     margin: 30px;
     font-size: 1.1rem;
   }
@@ -705,5 +713,245 @@ ol {
       }
     }
   }
+}
+
+.price {
+  font-family: $roboto;
+}
+.price__container {
+  padding: 30px 100px;
+}
+.price__title {
+  h2 {
+    font-size: 3rem;
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin: 0 0 30px;
+    width: 20%;
+  }
+}
+.price__radio {
+  display: flex;
+  flex-direction: column;
+  font-family: $montserrat;
+  font-weight: 500;
+  position: relative;
+  // ********
+
+  .custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .custom-radio + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  .custom-radio + label::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid $table-gray;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  .custom-radio:not(:disabled):not(:checked) + label:hover::before {
+    border-color: $table-gray;
+  }
+
+  .custom-radio:focus:not(:checked) + label::before {
+    border-color: $table-gray;
+  }
+
+  .custom-radio:checked + label {
+    position: relative;
+  }
+  .custom-radio:checked + label::before {
+    border-color: $table-gray;
+    background-color: $table-gray;
+    background-image: url(../img/dot.svg);
+  }
+  .custom-radio:checked + label::after {
+    position: absolute;
+    width: 100%;
+    color: $blue;
+
+    font-size: 0.5rem;
+    top: 40%;
+    left: 80%;
+  }
+  input[id="radio4"]:checked + label::after {
+    content: "(Save up to 13%)";
+  }
+  input[id="radio5"]:checked + label::after {
+    content: "(Save up to 5%)";
+  }
+
+  // ********
+  input[type="radio"] + label {
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 0;
+    color: $table-gray;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  input[type="radio"]:checked + label {
+    color: black;
+    background-image: none;
+    background-color: white;
+  }
+}
+table {
+  tr:first-child {
+    height: 120px;
+    & ~ tr {
+      height: 60px;
+    }
+  }
+
+  width: 100%;
+  * {
+    font-family: $montserrat;
+  }
+  tr {
+    :first-child {
+      vertical-align: bottom;
+      span {
+        color: $table-gray;
+        font-weight: 500;
+        font-size: 0.9em;
+        display: inline-block;
+        margin: 0 5px 10px;
+      }
+      & ~ th {
+        vertical-align: top;
+        font-size: 1.3rem;
+        line-height: 30px;
+        span.blue {
+          display: block;
+          line-height: 13px;
+          color: $blue;
+          font-size: 0.5em;
+        }
+      }
+    }
+  }
+  th {
+    font-weight: 600;
+  }
+  th,
+  td {
+    border-bottom: 1px solid $table-gray;
+    text-align: center;
+    &.left {
+      text-align: start;
+      width: 30%;
+    }
+  }
+  border-collapse: collapse;
+}
+.price__plan {
+  padding: 30px 30px 0 0;
+}
+.plan__title {
+  width: 100%;
+  h2 {
+    font-size: 2.5rem;
+  }
+  .plan__desc {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.plan-list {
+  margin-left: 70px;
+}
+.plan-item {
+  margin-bottom: 18px;
+}
+// *****
+.support {
+  background-color: #000000;
+  color: white;
+  h2 {
+    font-family: $roboto;
+    font-weight: 400;
+    font-size: 2.5rem;
+    text-align: center;
+    width: 30%;
+  }
+}
+.support__question {
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-family: $roboto;
+    font-size: 1.1rem;
+  }
+}
+.question__items {
+  margin-top: 20px;
+  width: 50%;
+}
+.question__item {
+  position: relative;
+  border-top: 1px solid white;
+  &:last-child {
+    border-bottom: 1px solid white;
+  }
+}
+.item-question {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  p {
+    padding-right: 10%;
+  }
+  &::before {
+    position: absolute;
+    content: "+";
+    font-size: 2rem;
+    font-weight: 600;
+    left: 95%;
+    transition: all 0.2s ease;
+  }
+  &.active {
+    &::before {
+      transform: rotate(45deg);
+    }
+  }
+}
+.question {
+  display: inline-block;
+}
+.toggle-container {
+  transition: height 0.35s ease-in-out;
+  overflow: hidden;
+  padding: 0 20px;
+  p {
+    font-size: 1rem;
+  }
+}
+.toggle-container:not(.active) {
+  display: none;
 }
 @import "max-width768";
