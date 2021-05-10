@@ -344,15 +344,15 @@ h1 {
 }
 
 .tools__content {
-  -webkit-transition: height 0.5s ease;
-  transition: height 0.5s ease;
+  -webkit-transition: height 0.6s ease;
+  transition: height 0.6s ease;
   display: block;
 }
 
 .tools__content:not(.hide) {
   overflow: hidden;
-  -webkit-transition: height 0.5s ease;
-  transition: height 0.5s ease;
+  -webkit-transition: height 0.6s ease;
+  transition: height 0.6s ease;
 }
 
 .tools__content p.p-center:first-child {
@@ -1306,6 +1306,14 @@ table td.left {
     max-width: 300px;
     height: 100%;
   }
+  .tools__content {
+    -webkit-transition: height 0.6s ease;
+    transition: height 0.6s ease;
+  }
+  .tools__content:not(.hide) {
+    -webkit-transition: height 1.2s ease;
+    transition: height 1.2s ease;
+  }
   .card__container img {
     max-width: 50%;
     height: 50%;
@@ -1462,13 +1470,16 @@ table td.left {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .plan-list {
     padding: 0;
     margin: 20px 0;
+  }
+  .price__radio {
+    margin-bottom: 10px;
   }
   .support h2 {
     width: 100%;
