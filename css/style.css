@@ -414,7 +414,9 @@ h3 {
 }
 
 .tools__item {
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0 15px;
   max-width: 430px;
 }
