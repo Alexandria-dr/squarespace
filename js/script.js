@@ -1,4 +1,4 @@
-const navButton = document.querySelector('.nav__burger');
+function init () {const navButton = document.querySelector('.nav__burger');
 
 navButton.addEventListener('click', e => {
     navButton.classList.toggle('active');
@@ -85,3 +85,12 @@ const swiper = new Swiper('.swiper-container', {
   function addZero(num){
     return (num > 9) ? num : '0' + num;
   }
+
+
+}
+
+
+
+  window.addEventListener('load', function () {
+    init();
+  })
