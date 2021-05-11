@@ -86,7 +86,7 @@ const swiper = new Swiper('.swiper-container', {
 
   function addZero(num){
     return (num > 9) ? num : '0' + num;
-  }
+  }}
 
 // 
 // const header = document.querySelector('.header__nav')
