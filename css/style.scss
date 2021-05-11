@@ -337,8 +337,14 @@ h3 {
   max-height: 250px;
   font-family: $monda;
   img {
+    .img1 {
+      max-width: 250px;
+      max-height: 250px;
+    }
+    min-height: 100px;
+    min-width: 100px;
     height: 100%;
-    width: auto;
+    width: 100%;
   }
 }
 .btn-green {
@@ -362,14 +368,20 @@ h3 {
     line-height: 25px;
   }
 }
+
 .card__container {
   background-color: white;
   padding: 20px 30px;
   display: flex;
   max-height: 250px;
   max-width: 430px;
+  min-height: 250px;
+  &.card1 {
+    align-items: center;
+  }
   &.card2 {
     flex-direction: column;
+    width: 100%;
     padding: 30px 30px;
     span {
       display: block;

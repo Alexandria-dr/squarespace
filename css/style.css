@@ -428,8 +428,15 @@ h3 {
 }
 
 .item__card img {
+  min-height: 100px;
+  min-width: 100px;
   height: 100%;
-  width: auto;
+  width: 100%;
+}
+
+.item__card img .img1 {
+  max-width: 250px;
+  max-height: 250px;
 }
 
 .btn-green {
@@ -466,6 +473,13 @@ h3 {
   display: flex;
   max-height: 250px;
   max-width: 430px;
+  min-height: 250px;
+}
+
+.card__container.card1 {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card__container.card2 {
@@ -473,6 +487,7 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
   padding: 30px 30px;
 }
 
@@ -1580,8 +1595,9 @@ footer span {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-left: 10px;
   }
   .card__desc p {
