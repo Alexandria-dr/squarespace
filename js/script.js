@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 function init () {const navButton = document.querySelector('.nav__burger');
 
 navButton.addEventListener('click', e => {
@@ -86,8 +88,19 @@ const swiper = new Swiper('.swiper-container', {
     return (num > 9) ? num : '0' + num;
   }
 
+// 
+// const header = document.querySelector('.header__nav')
 
-}
+// function toggleTopMenu (){
+//   if (pageYOffset > 30) {
+//     header.classList.add('is-scroll')} else{ header.classList.remove('is-scroll')}
+
+//     }
+//     window.addEventListener('scroll', toggleTopMenu)
+//   }
+
+
+
 
 
 
