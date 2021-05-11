@@ -320,9 +320,16 @@
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     row-gap: 35px;
     ul {
-      justify-content: center;
+      justify-content: start;
       * {
         font-size: 0.9rem;
+      }
+      a {
+        &:hover {
+          &::before {
+            content: none;
+          }
+        }
       }
     }
   }

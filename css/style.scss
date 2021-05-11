@@ -240,6 +240,7 @@ h1 {
   padding: 0 5%;
 }
 .tools__top a {
+  position: relative;
   color: $black;
   &:hover {
     color: $black;
@@ -259,6 +260,7 @@ h1 {
   display: flex;
   .logo img {
     margin-right: 10px;
+    width: 34px;
   }
   a {
     font-weight: 700;
@@ -270,6 +272,8 @@ h1 {
   font-weight: 400;
   font-size: 2rem;
   transition: all 0.5s ease;
+  text-align: center;
+  width: 400px;
 }
 .tools__text.active {
   transform: translateY(50px) scale(1.5);
@@ -286,6 +290,9 @@ h1 {
     overflow: hidden;
     transition: height 0.6s ease;
   }
+  p {
+    max-width: 600px;
+  }
 }
 .tools__content {
   p.p-center:first-child {
@@ -297,7 +304,6 @@ h1 {
   font-family: $mitr;
   font-weight: 300;
   font-size: 1.1rem;
-  width: 50%;
   margin: 10px auto;
 }
 h3 {
@@ -314,21 +320,25 @@ h3 {
 .tools__items {
   margin: 40px 0 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
   gap: 20px;
+  grid-auto-flow: row;
+  justify-items: center;
 }
 .tools__item {
+  height: 100%;
   margin: 0 15px;
-  grid-auto-flow: row;
+  max-width: 430px;
 }
 .item__card {
+  width: 100%;
+  height: 100%;
   max-width: 500px;
   max-height: 250px;
-
   font-family: $monda;
   img {
     height: 100%;
-    width: 100%;
+    width: auto;
   }
 }
 .btn-green {
@@ -448,7 +458,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   color: $white;
-  width: 40%;
+  width: 100%;
   padding: 50px 0;
   margin: 0 auto;
   text-align: center;
@@ -456,6 +466,7 @@ h3 {
     font-family: $roboto;
   }
   p {
+    max-width: 300px;
     margin: 15px 0;
   }
 }
@@ -478,7 +489,7 @@ h3 {
   }
 }
 h2 {
-  width: 50%;
+  max-width: 300px;
   font-size: 3.5rem;
   font-weight: 400;
   margin: 10px 0;
@@ -502,11 +513,11 @@ h2 {
   h2 {
     font-family: $montserrat;
     font-size: 3rem;
-    width: 45%;
+    max-width: 600px;
     margin-bottom: 20px;
   }
   p {
-    width: 55%;
+    max-width: 650px;
   }
 }
 .features__container {
@@ -536,13 +547,13 @@ h2 {
     &::before {
       position: absolute;
       content: "";
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
       border-radius: 50%;
       top: 50%;
-      right: -14.8%;
+      right: -13.8%;
       background-color: $white;
-      opacity: 0.8;
+      opacity: 1;
     }
     &::after {
       position: absolute;
@@ -572,7 +583,7 @@ h2 {
         }
       }
       &::before {
-        left: -14.5%;
+        left: -13.5%;
       }
     }
   }
@@ -650,7 +661,7 @@ h2 {
 }
 
 .startPoint__container {
-  padding: 30px 50px;
+  padding: 0 50px 60px;
   img {
     width: 100%;
     height: 100%;
@@ -666,11 +677,12 @@ h2 {
     font-family: $montserrat;
     font-weight: 500;
     font-size: 2.5rem;
+    max-width: 550px;
   }
   p {
     font-family: $roboto;
     font-weight: 500;
-    width: 50%;
+    max-width: 600px;
     font-size: 1.2rem;
   }
 }
@@ -693,13 +705,18 @@ ol {
   }
 }
 .howStart__container {
-  padding: 40px 130px;
+  padding: 40px 30px;
   display: flex;
+  justify-content: center;
+}
+.howStart__list {
+  max-width: 650px;
 }
 .howStart__title {
+  margin-right: 50px;
   h2 {
     font-size: 2.5rem;
-    width: 70%;
+    max-width: 450px;
     margin: 35px 0;
   }
   a {
@@ -738,7 +755,7 @@ ol {
     font-weight: 300;
     font-size: 1.6rem;
     margin: 0 0 30px;
-    width: 20%;
+    max-width: 330px;
   }
 }
 .price__radio {
@@ -880,6 +897,7 @@ table {
 .plan__title {
   width: 100%;
   h2 {
+    max-width: 560px;
     font-size: 2.5rem;
   }
   .plan__desc {
@@ -904,7 +922,7 @@ table {
     font-weight: 400;
     font-size: 2.5rem;
     text-align: center;
-    width: 30%;
+    max-width: 350px;
   }
 }
 .support__question {
@@ -1006,12 +1024,12 @@ table {
 .trial {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  padding: 10px 120px 10px 30px;
+  padding: 10px 120px 10px 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   h2 {
-    width: 60%;
+    max-width: 720px;
     text-align: start;
   }
   a {
@@ -1093,6 +1111,7 @@ footer {
     border: none;
     height: 50px;
     max-width: 190px;
+    min-width: 110px;
     width: 100%;
     appearance: none;
     text-transform: uppercase;

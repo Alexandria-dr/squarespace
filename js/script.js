@@ -8,14 +8,14 @@ navButton.addEventListener('click', e => {
     document.querySelector('body').classList.toggle('lock')
 })
 
-var container = document.querySelector('.tools__content');
+const container = document.querySelector('.tools__content');
 container.style.height = container.clientHeight + 'px';
 
-var linkToggle = document.querySelector('.btn__close');
+const linkToggle = document.querySelector('.btn__close');
 
   linkToggle.addEventListener('click', function(event){
     event.preventDefault();
-    var container = document.querySelector('.tools__content');
+    const container = document.querySelector('.tools__content');
     (linkToggle.innerHTML == '<i class="fas fa-times"></i>')? linkToggle.innerHTML = '<i class="far fa-arrow-alt-circle-down"></i>' : linkToggle.innerHTML = '<i class="fas fa-times"></i>'
     document.querySelector('.tools__text').classList.toggle('active');
     if (!container.classList.contains('hide')) {
@@ -25,7 +25,7 @@ var linkToggle = document.querySelector('.btn__close');
       
     } else {
       container.style.height = 'auto';
-      var height = container.clientHeight + 30 + 'px';
+      const height = container.clientHeight + 30 + 'px';
       container.style.height = '0px';
 
       setTimeout(function () { 
@@ -37,16 +37,16 @@ var linkToggle = document.querySelector('.btn__close');
   });
 
 
-  var linkTogglee = document.querySelectorAll('.js-toggle');
+  const linkTogglee = document.querySelectorAll('.js-toggle');
 for(i = 0; i < linkTogglee.length; i++){
   linkTogglee[i].addEventListener('click', function(event){
     event.preventDefault();
-    var container = document.getElementById(this.dataset.container);
+    const container = document.getElementById(this.dataset.container);
     this.classList.toggle('active');
     if (!container.classList.contains('active')) {
       container.classList.add('active');
       container.style.height = 'auto';
-      var height = container.clientHeight + 'px';
+      let height = container.clientHeight + 'px';
       container.style.height = '0px';
       setTimeout(function () {
         container.style.height = height;
@@ -98,11 +98,6 @@ const swiper = new Swiper('.swiper-container', {
 //     }
 //     window.addEventListener('scroll', toggleTopMenu)
 //   }
-
-
-
-
-
 
   window.addEventListener('load', function () {
     init();
