@@ -1,7 +1,0 @@
-
-<IfModule mod_expires.c>
-ExpiresActive On
-ExpiresByType image/svg "access plus 5 days"
-ExpiresByType image/webp "access plus 5 days"
-</IfModule>
-

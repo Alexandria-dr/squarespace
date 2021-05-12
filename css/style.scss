@@ -336,6 +336,7 @@ h3 {
   height: fit-content;
   margin: 0 15px;
   max-width: 430px;
+  // opacity: 0;
 }
 .item__card {
   width: 100%;
@@ -382,7 +383,7 @@ h3 {
   display: flex;
   max-height: 250px;
   max-width: 430px;
-  min-height: 250px;
+  min-height: 240px;
   &.card1 {
     align-items: center;
   }
@@ -542,6 +543,18 @@ h2 {
 .features__container {
   padding: 30px 150px;
 }
+.features__items {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $white;
+  }
+}
 .features__item {
   position: relative;
   display: flex;
@@ -606,20 +619,20 @@ h2 {
       }
     }
   }
-  &::before {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 0;
-    height: 200%;
-    width: 1px;
-    background-color: $white;
-  }
-  &:last-child {
-    &::before {
-      height: 130%;
-    }
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   left: 50%;
+  //   top: 0;
+  //   height: 200%;
+  //   width: 1px;
+  //   background-color: $white;
+  // }
+  // &:last-child {
+  //   &::before {
+  //     height: 130%;
+  //   }
+  // }
 }
 .features__item {
   &:last-child {
@@ -639,6 +652,7 @@ h2 {
   display: flex;
   height: 20px;
   position: relative;
+  z-index: 9;
 }
 .swiper-pagination {
   display: flex;

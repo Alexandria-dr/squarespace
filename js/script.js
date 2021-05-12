@@ -10,7 +10,6 @@ navButton.addEventListener('click', e => {
 
 const container = document.querySelector('.tools__content');
 container.style.height = container.clientHeight + 'px';
-
 const linkToggle = document.querySelector('.btn__close');
 
   linkToggle.addEventListener('click', function(event){
@@ -19,23 +18,18 @@ const linkToggle = document.querySelector('.btn__close');
     (linkToggle.innerHTML == '<i class="fas fa-times"></i>')? linkToggle.innerHTML = '<i class="far fa-arrow-alt-circle-down"></i>' : linkToggle.innerHTML = '<i class="fas fa-times"></i>'
     document.querySelector('.tools__text').classList.toggle('active');
     if (!container.classList.contains('hide')) {
-  
     container.style.height = '0px';
     container.classList.add('hide');
-      
     } else {
       container.style.height = 'auto';
       const height = container.clientHeight + 30 + 'px';
       container.style.height = '0px';
-
       setTimeout(function () { 
         container.style.height = height ;
       }, 0);
       container.classList.remove('hide');
-      
     }
   });
-
 
   const linkTogglee = document.querySelectorAll('.js-toggle');
 for(i = 0; i < linkTogglee.length; i++){
@@ -61,9 +55,6 @@ for(i = 0; i < linkTogglee.length; i++){
     }
   });
 }
-
-
-
 
 const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
@@ -97,7 +88,88 @@ const swiper = new Swiper('.swiper-container', {
        else
       {header.classList.remove('is-scroll')}
       }
-      window.addEventListener('scroll', toggleTopMenu)
+  window.addEventListener('scroll', toggleTopMenu);
+    
+  // gsap
+
+  
+  gsap.fromTo(".intro__info", {x: -100, opacity:0,},{
+    opacity:1,
+    x:0,
+    duration:2,delay:0.2
+  });
+  
+  function hide(element) {
+    gsap.set(element, {opacity: 0, duration: 0.5});
+  }
+
+  let tl = gsap.timeline();
+
+  function fromBottom(element, y, y2, o1, o2) {tl.fromTo(element,  {y: y, opacity:o1, }, {
+    y: y2,
+    opacity: o2,
+    duration: 0.4,
+  },)  
+}
+
+const tools = document.querySelectorAll('.tools__item');
+
+  tools.forEach(function(element){
+    hide(element);
+    ScrollTrigger.create({
+      markers: true,
+      start: 'top-=150 center',
+      end: 'bottom top',
+      trigger: element,
+      onEnter: function() { fromBottom(element, 200, 0, 0, 1)
+     },
+     onLeaveBack: function() { fromBottom(element, 0, 200, 1, 0) }
+    });
+  });
+
+  const featuresItems = document.querySelectorAll('.features__item');
+  const listItem = document.querySelectorAll('.gsap-right-left');
+  console.log(listItem); 
+
+  function fromGSAPlr(element, x, x1, o, o1) {
+    gsap.fromTo(element,  {x: x, opacity:o, }, {
+      x: x1,
+      opacity: o1,
+      duration: 1
+    },)  
+  }
+  function fromLeftRight(element, o, o1, check) { 
+    let x;
+    let x1 = 0;
+    if (element.classList.contains('reverse')) { x = -200; console.log('reverse');} else { x = 200};
+    if(check == true){ x1 = x; x = 0}
+    fromGSAPlr(element, x, x1, o, o1)
+  }
+
+  featuresItems.forEach(function(element){
+    hide(element);
+    ScrollTrigger.create({
+      markers: true,
+      start: 'top center',
+      end: 'bottom top',
+      trigger: element,
+      onEnter: function() {fromLeftRight(element, 0, 1, 0)},
+      onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
+  })})
+  listItem.forEach(function(element){
+    hide(element);
+    ScrollTrigger.create({
+      markers: true,
+      start: 'top-=200 center',
+      end: 'bottom top',
+      trigger: element,
+      onEnter: function() {fromLeftRight(element, 0, 1, 0)},
+      onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
+  })})
+
+  
+  
+  
     }
 
 // 
