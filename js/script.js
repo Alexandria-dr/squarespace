@@ -80,7 +80,7 @@ const swiper = new Swiper('.swiper-container', {
   }
 
   const header = document.querySelector('.header__nav');
-  console.log(document.querySelector('.header__nav'));
+  
   
   function toggleTopMenu (){
     if (pageYOffset > 30) {
@@ -128,7 +128,7 @@ const tools = document.querySelectorAll('.tools__item');
 
   const featuresItems = document.querySelectorAll('.features__item');
   const listItem = document.querySelectorAll('.gsap-right-left');
-  console.log(listItem); 
+  
 
   function fromGSAPlr(element, x, x1, o, o1) {
     gsap.fromTo(element,  {x: x, opacity:o, }, {
@@ -140,7 +140,7 @@ const tools = document.querySelectorAll('.tools__item');
   function fromLeftRight(element, o, o1, check) { 
     let x;
     let x1 = 0;
-    if (element.classList.contains('reverse')) { x = -200; console.log('reverse');} else { x = 200};
+    if (element.classList.contains('reverse')) { x = -200} else { x = 200};
     if(check == true){ x1 = x; x = 0}
     fromGSAPlr(element, x, x1, o, o1)
   }
