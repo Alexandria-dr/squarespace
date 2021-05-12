@@ -117,7 +117,6 @@ const tools = document.querySelectorAll('.tools__item');
   tools.forEach(function(element){
     hide(element);
     ScrollTrigger.create({
-      markers: true,
       start: 'top-=150 center',
       end: 'bottom top',
       trigger: element,
@@ -149,7 +148,6 @@ const tools = document.querySelectorAll('.tools__item');
   featuresItems.forEach(function(element){
     hide(element);
     ScrollTrigger.create({
-      markers: true,
       start: 'top center',
       end: 'bottom top',
       trigger: element,
@@ -159,7 +157,6 @@ const tools = document.querySelectorAll('.tools__item');
   listItem.forEach(function(element){
     hide(element);
     ScrollTrigger.create({
-      markers: true,
       start: 'top-=200 center',
       end: 'bottom top',
       trigger: element,
