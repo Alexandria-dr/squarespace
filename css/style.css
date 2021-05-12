@@ -88,17 +88,6 @@ header {
   color: #f6eded;
 }
 
-.header::before {
-  position: absolute;
-  content: "";
-  background-color: #131313;
-  height: 75px;
-  width: 100%;
-  z-index: 1;
-  left: 0;
-  top: 0;
-}
-
 .header__nav {
   z-index: 10;
   position: fixed;
@@ -254,6 +243,10 @@ h1 {
       -ms-flex-pack: center;
           justify-content: center;
   margin-left: 5%;
+}
+
+.intro__info a:hover::before {
+  content: none;
 }
 
 .info__links {

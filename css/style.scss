@@ -74,16 +74,16 @@ header {
 
 .header {
   color: $white;
-  &::before {
-    position: absolute;
-    content: "";
-    background-color: $black;
-    height: 75px;
-    width: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   background-color: $black;
+  //   height: 75px;
+  //   width: 100%;
+  //   z-index: 1;
+  //   left: 0;
+  //   top: 0;
+  // }
 }
 
 .header__nav {
@@ -205,6 +205,13 @@ h1 {
   align-items: flex-start;
   justify-content: center;
   margin-left: 5%;
+  a {
+    &:hover {
+      &::before {
+        content: none;
+      }
+    }
+  }
 }
 .info__links {
   width: 90%;

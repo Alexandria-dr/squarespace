@@ -86,18 +86,21 @@ const swiper = new Swiper('.swiper-container', {
 
   function addZero(num){
     return (num > 9) ? num : '0' + num;
-  }}
+  }
+
+  const header = document.querySelector('.header__nav');
+  console.log(document.querySelector('.header__nav'));
+  
+  function toggleTopMenu (){
+    if (pageYOffset > 30) {
+      header.classList.add('is-scroll')}
+       else
+      {header.classList.remove('is-scroll')}
+      }
+      window.addEventListener('scroll', toggleTopMenu)
+    }
 
 // 
-// const header = document.querySelector('.header__nav')
-
-// function toggleTopMenu (){
-//   if (pageYOffset > 30) {
-//     header.classList.add('is-scroll')} else{ header.classList.remove('is-scroll')}
-
-//     }
-//     window.addEventListener('scroll', toggleTopMenu)
-//   }
 
   window.addEventListener('load', function () {
     init();
