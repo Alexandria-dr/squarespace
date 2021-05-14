@@ -140,6 +140,7 @@
     background-position: center;
   }
   .possibility__content {
+    padding: 90px 0;
     width: 90%;
   }
   h2 {
@@ -171,11 +172,16 @@
     }
   }
   .features__item {
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column-reverse;
     margin: 50px 0;
+    &.reverse {
+      flex-direction: column;
+    }
     .features__item_img,
     p {
       width: 90%;
+      padding: 0 !important;
     }
     .features__item_img {
       background-color: transparent;

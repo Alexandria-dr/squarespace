@@ -93,11 +93,26 @@ const swiper = new Swiper('.swiper-container', {
   // gsap
 
   
-  gsap.fromTo(".intro__info", {x: -100, opacity:0,},{
-    opacity:1,
-    x:0,
-    duration:2,delay:0.2
-  });
+  let tl2 = gsap.timeline({ duration: 0.7, delay: 0.1 });
+
+
+  tl2
+    .fromTo(".info__content h1", { x: -100, opacity: 0, }, {
+      opacity: 1,
+      x: 0
+    })
+    .fromTo([".info__content p", ".info__content a"], { x: -100, opacity: 0, }, {
+      opacity: 1,
+      x: 0,
+    })
+    .fromTo(".info__links", { opacity: 0, }, {
+      opacity: 1,
+      delay: 0.2
+    })
+    .fromTo(".header__nav", { opacity: 0, }, {
+      opacity: 1,
+      duration: 0.1
+    })
   
   function hide(element) {
     gsap.set(element, {opacity: 0, duration: 0.5});

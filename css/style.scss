@@ -87,6 +87,7 @@ header {
 }
 
 .header__nav {
+  opacity: 0;
   z-index: 10;
   position: fixed;
   top: 0;
@@ -187,6 +188,7 @@ header {
 }
 
 h1 {
+  opacity: 0;
   text-transform: uppercase;
   font-family: $montserrat;
   font-weight: 600;
@@ -198,7 +200,6 @@ h1 {
   height: 720px;
 }
 .intro__info {
-  opacity: 0;
   height: 100%;
   width: 30%;
   display: flex;
@@ -215,6 +216,7 @@ h1 {
   }
 }
 .info__links {
+  opacity: 0;
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -227,12 +229,14 @@ h1 {
 .info__content {
   margin-left: 5%;
   p {
+    opacity: 0;
     margin: 45px 0 60px;
     font-family: $montserrat;
     font-weight: 500;
     font-size: 1rem;
   }
   .btn_white {
+    opacity: 0;
     border-radius: 5px;
     text-transform: none;
     font-weight: 600;
@@ -473,6 +477,7 @@ h3 {
 .possibility {
   background: url(../img/piano_bg.webp) no-repeat;
   background-size: cover;
+  background-position: right 0;
 }
 .possibility__content {
   display: flex;
@@ -480,7 +485,7 @@ h3 {
   align-items: center;
   color: $white;
   width: 100%;
-  padding: 50px 0;
+  padding: 120px 0;
   margin: 0 auto;
   text-align: center;
   * {
@@ -558,15 +563,19 @@ h2 {
 }
 .features__item {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%;
   align-items: center;
   margin: 100px 0;
+  :first-child {
+    order: 2;
+  }
 
   .features__item_img {
     background-color: #696969;
     position: relative;
-    width: 45%;
+    width: 90%;
+    justify-self: end;
     img {
       cursor: pointer;
       height: 100%;
@@ -574,8 +583,30 @@ h2 {
       object-fit: cover;
       transition: all 0.3s ease;
       &:hover {
-        transform: translate3d(-20px, -20px, 20px);
+        transform: translate3d(20px, -20px, 20px);
       }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 5px;
+      bottom: 0px;
+      left: 0;
+      background-color: $green;
+    }
+  }
+  p {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    padding-right: 10%;
+    justify-self: end;
+    span {
+      display: block;
+      font-size: 1.5em;
+      margin-bottom: 20px;
     }
     &::before {
       position: absolute;
@@ -584,39 +615,30 @@ h2 {
       width: 30px;
       border-radius: 50%;
       top: 50%;
-      right: -13.8%;
+      right: -15px;
       background-color: $white;
       opacity: 1;
     }
-    &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 10px;
-      bottom: 0px;
-      left: 0;
-      background-color: $green;
-    }
-  }
-  p {
-    width: 45%;
-    span {
-      display: block;
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
   }
   &.reverse {
-    flex-direction: row-reverse;
+    :first-child {
+      order: 0;
+    }
+    :nth-child(2) {
+      padding-left: 10%;
+      padding-right: 0;
+      justify-self: start;
+      &::before {
+        left: -15px;
+      }
+    }
     .features__item_img {
       background-color: #343644;
+      justify-self: start;
       img {
         &:hover {
-          transform: translate3d(20px, -20px, 20px);
+          transform: translate3d(-20px, -20px, 20px);
         }
-      }
-      &::before {
-        left: -13.5%;
       }
     }
   }
@@ -658,6 +680,7 @@ h2 {
 .swiper-pagination {
   display: flex;
   justify-content: center;
+  max-width: 150px;
   * {
     font-size: 0.9rem;
   }
