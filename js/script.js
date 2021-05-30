@@ -46,7 +46,7 @@ for(i = 0; i < linkTogglee.length; i++){
         container.style.height = height;
       }, 0);
     } else {
-      container.style.height = '0px';
+      container.style.height = '50px';
       container.addEventListener('transitionend', function () {
         container.classList.remove('active');
       }, {
@@ -92,6 +92,9 @@ const swiper = new Swiper('.swiper-container', {
     
   // gsap
 
+      // ScrollTrigger.defaults({
+      //   markers:true
+      // })
   
   let tl2 = gsap.timeline({ duration: 0.7, delay: 0.1 });
 
@@ -163,7 +166,7 @@ const tools = document.querySelectorAll('.tools__item');
   featuresItems.forEach(function(element){
     hide(element);
     ScrollTrigger.create({
-      start: 'top center',
+      start: 'top-=250 center',
       end: 'bottom top',
       trigger: element,
       onEnter: function() {fromLeftRight(element, 0, 1, 0)},
