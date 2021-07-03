@@ -92,9 +92,9 @@ const swiper = new Swiper('.swiper-container', {
     
   // gsap
 
-      ScrollTrigger.defaults({
-        markers:true
-      })
+      // ScrollTrigger.defaults({
+      //   markers:true
+      // })
   
   let tl2 = gsap.timeline({ });
 
