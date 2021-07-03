@@ -92,42 +92,49 @@ const swiper = new Swiper('.swiper-container', {
     
   // gsap
 
-      // ScrollTrigger.defaults({
-      //   markers:true
-      // })
+      ScrollTrigger.defaults({
+        markers:true
+      })
   
-  let tl2 = gsap.timeline({ duration: 0.7, delay: 0.1 });
+  let tl2 = gsap.timeline({ });
 
 
   tl2
     .fromTo(".info__content h1", { x: -100, opacity: 0, }, {
       opacity: 1,
-      x: 0
+      x: 0, duration:1
     })
     .fromTo([".info__content p", ".info__content a"], { x: -100, opacity: 0, }, {
       opacity: 1,
       x: 0,
-    })
+      duration:1,
+      stagger: 0.5
+    },">-0.6")
     .fromTo(".info__links", { opacity: 0, }, {
       opacity: 1,
-      delay: 0.2
-    })
+      duration:1
+    },">-1")
     .fromTo(".header__nav", { opacity: 0, }, {
       opacity: 1,
-      duration: 0.1
-    })
+      duration: 0.5,
+  },">-0.9")
+
   
   function hide(element) {
     gsap.set(element, {opacity: 0, duration: 0.5});
   }
 
   let tl = gsap.timeline();
-
-  function fromBottom(element, y, y2, o1, o2) {tl.fromTo(element,  {y: y, opacity:o1, }, {
+  let x = 0
+  function fromBottom(element, y, y2, o1, o2) {
+    tl.fromTo(element,
+   {y: y,
+     opacity:o1,
+   }, {
     y: y2,
     opacity: o2,
-    duration: 0.4,
-  },)  
+    duration: 1,
+  }, x+=0.2)
 }
 
 const tools = document.querySelectorAll('.tools__item');
@@ -135,12 +142,13 @@ const tools = document.querySelectorAll('.tools__item');
   tools.forEach(function(element){
     hide(element);
     ScrollTrigger.create({
-      start: 'top-=150 center',
+      start: 'top-=200 center',
       end: 'bottom top',
       trigger: element,
       onEnter: function() { fromBottom(element, 200, 0, 0, 1)
      },
-     onLeaveBack: function() { fromBottom(element, 0, 200, 1, 0) }
+    //  onLeaveBack: function() { fromBottom(element, 0, 200, 1, 0) } 
+     onLeaveBack: (self) => self.disable(), 
     });
   });
 
@@ -152,7 +160,7 @@ const tools = document.querySelectorAll('.tools__item');
     gsap.fromTo(element,  {x: x, opacity:o, }, {
       x: x1,
       opacity: o1,
-      duration: 1
+      duration: 1,
     },)  
   }
   function fromLeftRight(element, o, o1, check) { 
@@ -170,20 +178,61 @@ const tools = document.querySelectorAll('.tools__item');
       end: 'bottom top',
       trigger: element,
       onEnter: function() {fromLeftRight(element, 0, 1, 0)},
-      onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
+      onLeaveBack: (self) => self.disable(),
+      // onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
   })})
   listItem.forEach(function(element){
-    hide(element);
-    ScrollTrigger.create({
+    hide(element);})
+
+  ScrollTrigger.create({
       start: 'top-=200 center',
       end: 'bottom top',
-      trigger: element,
-      onEnter: function() {fromLeftRight(element, 0, 1, 0)},
-      onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
-  })})
+      trigger: ".howStart__list",
+      onEnter: function() {
+        let tl = gsap.timeline({});
+        let x1 = 0;
+        listItem.forEach(function(element){tl.fromTo(element,  {x: -200, opacity:0, }, {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+        },x1+=0.3)  })} ,
+      onLeaveBack: (self) => self.disable(),
+      // onLeaveBack: function() {fromLeftRight(element, 1, 0, 1)},
+  })
+  
+  //якоря
 
-  
-  
+  const menuLinks = document.querySelectorAll(".link[data-goto]");
+if (menuLinks.length > 0) {
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener("click", onMenuLinkClick);
+  });
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    console.log(document.querySelector(menuLink.dataset.goto));
+    if (
+      menuLink.dataset.goto &&
+      document.querySelector(menuLink.dataset.goto)
+      
+    ) {
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top +
+        pageYOffset -
+        document.querySelector(".header__nav").offsetHeight +5;
+      if (navButton.classList.contains("active")) {
+        navButton.click();
+      }
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth",
+      });
+      e.preventDefault();
+    }
+  }
+}
+
   
     }
 

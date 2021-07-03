@@ -36,13 +36,21 @@
         <nav class="header__nav">
           <div class="nav__logo logo">
             <a class="logo" href="#"><img src="./img/logo.svg" alt="logo" /></a>
-            <a class="logo logo_text" href="#">Squarespace</a>
+            <a data-goto=".header" class="logo logo_text link" href="#"
+              >Squarespace</a
+            >
           </div>
           <div class="menu__links">
             <ul class="list-menu">
-              <li class="menu-item"><a href="#">Products</a></li>
-              <li class="menu-item"><a href="#">Templates</a></li>
-              <li class="menu-item"><a href="#">Resources</a></li>
+              <li data-goto=".features" class="menu-item link">
+                <a data-goto=".features" href="#">Products</a>
+              </li>
+              <li data-goto=".startPoint" class="menu-item link">
+                <a data-goto=".startPoint" href="#">Templates</a>
+              </li>
+              <li data-goto=".support" class="menu-item link">
+                <a data-goto=".support" href="#">Resources</a>
+              </li>
             </ul>
           </div>
           <div class="menu__login">
@@ -52,9 +60,15 @@
           <div class="nav__burger"><span></span></div>
           <div class="nav__menu_mobile">
             <ul class="list-menu">
-              <li class="menu-item"><a href="#">Products</a></li>
-              <li class="menu-item"><a href="#">Templates</a></li>
-              <li class="menu-item"><a href="#">Resources</a></li>
+              <li data-goto=".features" class="menu-item link">
+                <a data-goto=".features" href="#">Products</a>
+              </li>
+              <li data-goto=".startPoint" class="menu-item link">
+                <a data-goto=".startPoint" href="#">Templates</a>
+              </li>
+              <li data-goto=".support" class="menu-item link">
+                <a data-goto=".support" href="#">Resources</a>
+              </li>
               <li class="menu-item"><a href="#">Log IN</a></li>
               <li class="menu-item">
                 <a class="btn_white" href="#">Get Started</a>

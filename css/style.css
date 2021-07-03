@@ -214,6 +214,7 @@ header {
 
 .nav__burger {
   display: none;
+  cursor: pointer;
 }
 
 h1 {
@@ -1496,6 +1497,10 @@ footer span {
 
 .footer__input select:focus {
   outline: none;
+}
+
+.link-list li:first-child {
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

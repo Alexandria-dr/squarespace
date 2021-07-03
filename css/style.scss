@@ -185,6 +185,7 @@ header {
 
 .nav__burger {
   display: none;
+  cursor: pointer;
 }
 
 h1 {
@@ -1182,4 +1183,9 @@ footer {
   }
 }
 
+.link-list {
+  li:first-child {
+    font-weight: 600;
+  }
+}
 @import "max-width768";
